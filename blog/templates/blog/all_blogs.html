@@ -1,0 +1,10 @@
+Hello Blog!
+
+<h2>Andrei has written {{blog_count}} blog{{blog_count|pluralize}}</h2>
+
+{% for article in articles %}
+
+<a href="{% url 'blog:detail' article.id %}"><h2>{{article.title}}</h2></a>
+<h4>{{article.published_date|date:'M d Y'}}</h4>
+<p>{{article.content|striptags|truncatechars:100}}</p>
+{% endfor %}
